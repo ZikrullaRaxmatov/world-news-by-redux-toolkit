@@ -1,0 +1,55 @@
+{
+  "news": [
+    {
+      "id": "6c14106a-526a-4891-8ebc-a6af711ffec7",
+      "name": "Todays SPORT!!!",
+      "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looki",
+      "category": "Sport news"
+    },
+    {
+      "id": "4dea7994-abb4-4307-a95c-f8c1103fb106",
+      "name": "World News",
+      "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at itsIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its",
+      "category": "World news"
+    },
+    {
+      "id": "8c3e0797-b37d-47a9-94fc-9f565f3066be",
+      "name": "BBC news!!!",
+      "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at itsIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its\n\n",
+      "category": "Breaking news"
+    },
+    {
+      "id": "c8253174-a2ef-4c85-9785-6ce78c0f5eea",
+      "name": "About of the Uzbekistan",
+      "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at itsIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its\n\n",
+      "category": "International news"
+    }
+  ],
+  "filters": [
+    {
+      "name": "all",
+      "label": "All",
+      "className": "btn-outline-dark me-2"
+    },
+    {
+      "name": "Breaking news",
+      "label": "Breaking news",
+      "className": "btn-outline-danger me-2"
+    },
+    {
+      "name": "International news",
+      "label": "International news",
+      "className": "btn-outline-info me-2"
+    },
+    {
+      "name": "Sport news",
+      "label": "Sport news",
+      "className": "btn-outline-primary me-2"
+    },
+    {
+      "name": "World news",
+      "label": "World news",
+      "className": "btn-outline-success mt-2"
+    }
+  ]
+}
