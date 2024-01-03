@@ -1,0 +1,19 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+.app {
+    height: 100vh;
+    overflow: scroll;
+    background: url('./assets/bg.jpg') center / cover no-repeat;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 500px 450px;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-top: 40px;
+    &__page {
+        padding-left: 40px;
+    }
+
+}
