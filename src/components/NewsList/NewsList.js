@@ -1,10 +1,10 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { newsDeletd, newsFetched, newsFetching, newsFetchingError } from "../redux/Actions";
-import useHttp from "../hooks/useHttp";
-import Loading from "./Loading";
-import Error from "./Error";
-import NewsListItem from "./NewsListItem";
+import { newsDeletd, newsFetched, newsFetching, newsFetchingError } from "../../redux/Actions";
+import useHttp from "../../hooks/useHttp";
+import Loading from "../Loading";
+import Error from "../Error";
+import NewsListItem from "../NewsListItem";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import './newsList.css'
 
@@ -38,7 +38,9 @@ function NewsList() {
 
     const renderNewsList = (arr) => {
         if (arr.length === 0){
-            return <h2>News does not exist</h2>
+            return <CSSTransition timeout={500} classNames="item" >             
+                     <h2 className="text-center mt-5">News does not exist</h2>
+                </CSSTransition>
         }
 
         return arr.map(item => {
