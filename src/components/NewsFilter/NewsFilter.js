@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import useHttp from "../hooks/useHttp";
+import useHttp from "../../hooks/useHttp";
 import { useEffect } from "react";
-import { filterFetched, filterFetching, filterFetchingError, activeFilterChanged } from "../redux/Actions";
-import Loading from "./Loading";
-import Error from "./Error";
+import { filterFetched, filterFetching, filterFetchingError, activeFilterChanged } from "../../redux/Actions";
+import Loading from "../Loading";
+import Error from "../Error";
 import classNames from "classnames";
 
 
