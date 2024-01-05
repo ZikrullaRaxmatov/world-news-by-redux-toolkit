@@ -1,7 +1,5 @@
 
 const initialState = {
-    news: [],
-    newsLoadingStatus: 'Ok',
     filters: [],
     filterLoadingStatus: 'Ok',
     activeFilter: 'all',

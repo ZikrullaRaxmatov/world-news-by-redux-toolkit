@@ -8,7 +8,7 @@ import classNames from "classnames";
 
 
 function NewsFilter(props) {
-    const { filters, filterLoadingStatus, activeFilter } = useSelector(state => state)
+    const { filters, filterLoadingStatus, activeFilter } = useSelector(state => state.filterReducer)
     const dispatch = useDispatch()
     const {request } = useHttp()
 

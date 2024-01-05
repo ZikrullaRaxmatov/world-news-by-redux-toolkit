@@ -7,7 +7,7 @@ import { combineReducers, createStore } from 'redux';
 import newsReducer from './components/NewsList/newsReducer';
 import filterReducer from './components/NewsFilter/filterReducer';
 
-const store = createStore(combineReducers({newsReducer, filterReducer}), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(combineReducers({filterReducer, newsReducer}), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
