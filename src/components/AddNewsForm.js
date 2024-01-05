@@ -12,7 +12,7 @@ function AddNewsForm() {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [category, setCategory] = useState('')
-    const { filters, filterLoadingStatus } = useSelector(state => state)
+    const { filters, filterLoadingStatus } = useSelector(state => state.filterReducer)
 
     const createNewNewsHandle = (e) => {
         // e.preventDefault()

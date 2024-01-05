@@ -25,10 +25,10 @@
       "category": "International news"
     },
     {
-      "id": "de9a7137-f13e-411b-b61c-0f29ff095b34",
-      "name": "Arabic changes!",
-      "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at itsIt is a long established fact that a reader will be distracted by the readable content of a page when looking ",
-      "category": "Breaking news"
+      "id": "9033b596-9518-4e10-b03d-3cf02bd4a772",
+      "name": "Arabic news!",
+      "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at itsIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its\n\n",
+      "category": "International news"
     }
   ],
   "filters": [
@@ -45,7 +45,7 @@
     {
       "name": "International news",
       "label": "International news",
-      "className": "btn-outline-info me-2"
+      "className": "btn-outline-warning me-2"
     },
     {
       "name": "Sport news",
