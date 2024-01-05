@@ -20,7 +20,6 @@ function Reducer(state = initialState, action) {
             return {
                 ...state,
                 news: action.payload,
-                filteredNews: state.activeFilter === 'all' ? action.payload : action.payload.filter(s => s.category === state.activeFilter),
                 newsLoadingStatus: 'Ok'
             }
 
@@ -31,11 +30,9 @@ function Reducer(state = initialState, action) {
             }
 
         case 'NEWS_POSTED':
-            const newNews = [...state.news, action.payload]
             return {
                 ...state,
-                news: newNews,
-                filteredNews: state.activeFilter === 'all' ? newNews : newNews.filter(s => s.category === state.activeFilter)
+                news: [...state.news, action.payload],
             }
         
         case 'FILTER_FETCHING':
@@ -61,15 +58,12 @@ function Reducer(state = initialState, action) {
             return {
                 ...state,
                 activeFilter: action.payload,
-                filteredNews: action.payload === 'all' ? state.news : state.news.filter(s => s.category === action.payload)
             }
 
         case 'NEWS_DELETED':
-            const newnewsList = state.news.filter(s => s.id !== action.payload)
             return {
                 ...state,
-                news: newnewsList,
-                filteredNews: state.activeFilter === 'all' ? newnewsList : newnewsList.filter(s => s.category === state.activeFilter)
+                news: state.news.filter(s => s.id !== action.payload),
             }
 
         default:

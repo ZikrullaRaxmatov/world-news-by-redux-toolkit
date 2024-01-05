@@ -9,7 +9,16 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 import './newsList.css'
 
 function NewsList() {
-    const {filteredNews, filterLoadingStatus} = useSelector(state => state)
+
+    const filteredNews = useSelector(state => {
+        if (state.activeFilter === 'all') {
+            return state.news
+        } else {
+            return state.news.filter(s => s.category === state.activeFilter)
+        }
+    })
+
+    const filterLoadingStatus = useSelector(state => state.filterLoadingStatus)
     const dispatch = useDispatch()
     const { request } = useHttp()
 
@@ -17,9 +26,9 @@ function NewsList() {
         dispatch(newsFetching())
         request('http://localhost:3001/news')
             .then(data => dispatch(newsFetched(data)))
-            .catch(() =>  dispatch(newsFetchingError()))
-            
-    // eslint-disable-next-line
+            .catch(() => dispatch(newsFetchingError()))
+
+        // eslint-disable-next-line
     }, [])
 
     const onDelete = useCallback((id) => {
@@ -37,16 +46,16 @@ function NewsList() {
     }
 
     const renderNewsList = (arr) => {
-        if (arr.length === 0){
-            return <CSSTransition timeout={500} classNames="item" >             
-                     <h2 className="text-center mt-5">News does not exist</h2>
-                </CSSTransition>
+        if (arr.length === 0) {
+            return <CSSTransition timeout={500} classNames="item" >
+                <h2 className="text-center mt-5">News does not exist</h2>
+            </CSSTransition>
         }
 
         return arr.map(item => {
             return (
-                <CSSTransition key={item.id} timeout={500} classNames="item" >             
-                    <NewsListItem  onDelete={() => onDelete(item.id)}  {...item} />
+                <CSSTransition key={item.id} timeout={500} classNames="item" >
+                    <NewsListItem onDelete={() => onDelete(item.id)}  {...item} />
                 </CSSTransition>
             )
         }).reverse()
