@@ -1,27 +1,8 @@
-// import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
-import newsReducer from './components/NewsList/newsReducer';
-import filterReducer from './components/NewsFilter/filterReducer';
-// import { thunk } from 'redux-thunk';
-import { configureStore } from '@reduxjs/toolkit';
 
-const stringMiddleware = (stroe) => (next) => (action) => {
-    if (typeof action === 'string') {
-      return next({ type: action })
-    }
-    return next(action)
-  }
-  
-  // const enhancer = (createStore) => (...args) => {
-  //   const store = createStore(...args)
-  //   const oldDispatch = store.dispatch
-  //   store.dispatch = (action) => {
-  //     if (typeof action === 'string') {
-  //       return oldDispatch({ type: action })
-  //     }
-  //     return oldDispatch(action)
-  //   }
-  //   return store
-  // }
+import newsReducer from '../components/NewsList/newsReducer';
+import filterReducer from '../components/NewsFilter/filterReducer';
+import { configureStore } from '@reduxjs/toolkit';
+import { stringMiddleware } from '../middlewares/stringMiddleware';
   
 export const store = configureStore({
     reducer: {newsReducer, filterReducer},
