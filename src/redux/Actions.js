@@ -6,6 +6,13 @@ export const fetchNews = (request) => (dispatch) => {
             .catch(() => dispatch('NEWS_FETCHING_ERROR'))
 }
 
+export const fetchFilter = (request) => (dispatch) => {
+    dispatch(filterFetching())
+        request('http://localhost:3001/filters')
+            .then(data => dispatch(filterFetched(data)))
+            .catch(() => filterFetchingError())
+}
+
 export const newsFetching = () => {
     return {
         type: 'NEWS_FETCHING'

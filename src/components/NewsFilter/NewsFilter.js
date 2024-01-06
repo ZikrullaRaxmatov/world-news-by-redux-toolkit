@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import useHttp from "../../hooks/useHttp";
 import { useEffect } from "react";
-import { filterFetched, filterFetching, filterFetchingError, activeFilterChanged } from "../../redux/Actions";
+import { fetchFilter, activeFilterChanged } from "../../redux/Actions";
 import Loading from "../Loading";
 import Error from "../Error";
 import classNames from "classnames";
@@ -13,10 +13,7 @@ function NewsFilter(props) {
     const {request } = useHttp()
 
     useEffect(() => {
-        dispatch(filterFetching())
-        request('http://localhost:3001/filters')
-            .then(data => dispatch(filterFetched(data)))
-            .catch(() => filterFetchingError())
+        dispatch(fetchFilter(request))
         // eslint-disable-next-line
     }, [])
 
