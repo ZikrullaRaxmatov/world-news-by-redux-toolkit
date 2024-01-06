@@ -1,4 +1,11 @@
 
+export const fetchNews = (request) => (dispatch) => {
+    dispatch('NEWS_FETCHING')
+        request('http://localhost:3001/news')
+            .then(data => dispatch(newsFetched(data)))
+            .catch(() => dispatch('NEWS_FETCHING_ERROR'))
+}
+
 export const newsFetching = () => {
     return {
         type: 'NEWS_FETCHING'

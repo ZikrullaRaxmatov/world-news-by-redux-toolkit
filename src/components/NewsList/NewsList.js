@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { newsDeletd, newsFetched } from "../../redux/Actions";
+import { newsDeletd, fetchNews } from "../../redux/Actions";
 import useHttp from "../../hooks/useHttp";
 import Loading from "../Loading";
 import Error from "../Error";
@@ -29,10 +29,7 @@ function NewsList() {
     const { request } = useHttp()
 
     useEffect(() => {
-        dispatch('NEWS_FETCHING')
-        request('http://localhost:3001/news')
-            .then(data => dispatch(newsFetched(data)))
-            .catch(() => dispatch('NEWS_FETCHING_ERROR'))
+        dispatch(fetchNews(request))
 
         // eslint-disable-next-line
     }, [])
