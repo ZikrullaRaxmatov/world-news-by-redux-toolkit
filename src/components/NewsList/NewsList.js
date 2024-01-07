@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { newsDeletd, fetchNews } from "../../redux/Actions";
+import { newsDeletd } from "../NewsList/newsSlice";
 import useHttp from "../../hooks/useHttp";
 import Loading from "../Loading";
 import Error from "../Error";
@@ -8,6 +8,7 @@ import NewsListItem from "../NewsListItem";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { createSelector } from "reselect";
 import './newsList.css'
+import { fetchNews } from "../../redux/Actions";
 
 function NewsList() {
 

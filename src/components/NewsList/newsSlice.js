@@ -28,5 +28,5 @@ const newsSlice = createSlice({
     }
 })
 
-export const { newsFetching, newsFetched, newsFetchingError, newsPosted, newsDeletd } = newsSlice.actions
 export default newsSlice.reducer
+export const { newsFetching, newsFetched, newsFetchingError, newsPosted, newsDeletd } = newsSlice.actions
