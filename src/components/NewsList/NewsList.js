@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { newsDeletd } from "../NewsList/newsSlice";
+import { newsDeletd, fetchNews } from "../NewsList/newsSlice";
 import useHttp from "../../hooks/useHttp";
 import Loading from "../Loading";
 import Error from "../Error";
@@ -8,7 +8,6 @@ import NewsListItem from "../NewsListItem";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { createSelector } from "reselect";
 import './newsList.css'
-import { fetchNews } from "../../redux/Actions";
 
 function NewsList() {
 
@@ -30,7 +29,7 @@ function NewsList() {
     const { request } = useHttp()
 
     useEffect(() => {
-        dispatch(fetchNews(request))
+        dispatch(fetchNews())
 
         // eslint-disable-next-line
     }, [])
