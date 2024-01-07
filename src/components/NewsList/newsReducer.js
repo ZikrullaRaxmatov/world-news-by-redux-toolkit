@@ -27,4 +27,24 @@ const newsReducer = createReducer(initialState, builder => {
         .addDefaultCase(() => {})
 })
 
+// const newsReducerWithNativeJS = createReducer(initialState, {
+//     [newsFetching]: state => {
+//         state.newsLoadingStatus = 'Loading'
+//     },
+//     [newsFetched]: (state, action) => {
+//         state.newsLoadingStatus = 'Ok'
+//         state.news = action.payload
+//     },
+//     [newsFetchingError]: state => {
+//         state.newsLoadingStatus = 'Error'
+//     },
+//     [newsPosted]: (state, action) => {
+//         state.news.push(action.payload)
+//     },
+//     [newsDeletd]: (state, action) => {
+//         state.news = state.news.filter(s => s.id !== action.payload)
+//     }
+// }, [], state => state)
+
 export default newsReducer;
+// export default newsReducerWithNativeJS
