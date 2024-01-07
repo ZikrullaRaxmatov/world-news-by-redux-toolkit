@@ -20,29 +20,8 @@ export const newsFetchingError = createAction('NEWS_FETCHING_ERROR')
 export const newsPosted = createAction('NEWS_POSTED')
 export const newsDeletd = createAction('NEWS_DELETED')
 
+export const filterFetching = createAction('FILTER_FETCHING')
+export const filterFetched = createAction('FILTER_FETCHED')
+export const filterFetchingError = createAction('FILTER_FETCHING_ERROR')
+export const activeFilterChanged = createAction('ACTIVE_FILTER_CHANGED')
 
-export const filterFetching = () => {
-    return {
-        type: 'FILTER_FETCHING'
-    }
-}
-
-export const filterFetched = (filters) => {
-    return {
-        type: 'FILTER_FETCHED',
-        payload: filters
-    }
-}
-
-export const filterFetchingError = () => {
-    return {
-        type: 'FILTER_FETCHING_ERROR',
-    }
-}
-
-export const activeFilterChanged = (filter) => {
-    return {
-        type: 'ACTIVE_FILTER_CHANGED', 
-        payload: filter
-    }
-}
