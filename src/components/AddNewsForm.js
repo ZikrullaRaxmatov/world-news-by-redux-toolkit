@@ -2,7 +2,7 @@ import { useState } from "react";
 import useHttp from '../hooks/useHttp'
 import { v4 } from "uuid";
 import { useDispatch, useSelector } from "react-redux";
-import { newPostedNews } from "../redux/Actions";
+import { newsPosted } from "../redux/Actions";
 
 
 function AddNewsForm() {
@@ -24,7 +24,7 @@ function AddNewsForm() {
         }
         request('http://localhost:3001/news', 'POST', JSON.stringify(newNews))
             .then(res => console.log(res))
-            .then(dispatch(newPostedNews(newNews)))
+            .then(dispatch(newsPosted(newNews)))
             .catch(err => console.log(err))
 
         setTitle('')
