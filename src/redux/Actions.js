@@ -1,3 +1,4 @@
+import { createAction } from "@reduxjs/toolkit"
 
 export const fetchNews = (request) => (dispatch) => {
     dispatch('NEWS_FETCHING')
@@ -13,24 +14,9 @@ export const fetchFilter = (request) => (dispatch) => {
             .catch(() => filterFetchingError())
 }
 
-export const newsFetching = () => {
-    return {
-        type: 'NEWS_FETCHING'
-    }
-}
-
-export const newsFetched = (news) => {
-    return {
-        type: 'NEWS_FETCHED',
-        payload: news
-    }
-}
-
-export const newsFetchingError = () => {
-    return {
-        type: 'NEWS_FETCHING_ERROR'
-    }
-}
+export const newsFetching = createAction('NEWS_FETCHING')
+export const newsFetched = createAction('NEWS_FETCHED')
+export const newsFetchingError = createAction('NEWS_FETCHING_ERROR')
 
 export const newPostedNews = (newNews) => {
     return {
