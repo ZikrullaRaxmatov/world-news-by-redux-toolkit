@@ -17,13 +17,9 @@ export const fetchFilter = (request) => (dispatch) => {
 export const newsFetching = createAction('NEWS_FETCHING')
 export const newsFetched = createAction('NEWS_FETCHED')
 export const newsFetchingError = createAction('NEWS_FETCHING_ERROR')
+export const newPostedNews = createAction('NEWS_POSTED')
+export const newsDeletd = createAction('NEWS_DELETED')
 
-export const newPostedNews = (newNews) => {
-    return {
-        type: 'NEWS_POSTED',
-        payload: newNews
-    }
-}
 
 export const filterFetching = () => {
     return {
@@ -48,12 +44,5 @@ export const activeFilterChanged = (filter) => {
     return {
         type: 'ACTIVE_FILTER_CHANGED', 
         payload: filter
-    }
-}
-
-export const newsDeletd = (id) => {
-    return {
-        type: 'NEWS_DELETED',
-        payload: id
     }
 }

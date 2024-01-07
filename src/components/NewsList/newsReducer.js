@@ -1,45 +1,62 @@
+import { createReducer } from "@reduxjs/toolkit";
+import { newsFetched, newsFetching, newsFetchingError } from "../../redux/Actions";
 
 const initialState = {
     news: [],
     newsLoadingStatus: 'Ok',
 }
 
-function newsReducer(state = initialState, action) {
-    switch (action.type) {
-        case 'NEWS_FETCHING':
-            return {
-                ...state,
-                newsLoadingStatus: 'Loading'
-            }
+const newsReducer = createReducer(initialState, builder => {
+    builder
+        .addCase(newsFetching, state => {
+            state.newsLoadingStatus = 'Loading'
+        })
+        .addCase(newsFetched, (state, action) => {
+            state.newsLoadingStatus = 'Ok'
+            state.news = action.payload
+        })
+        .addCase(newsFetchingError, state => {
+            state.newsLoadingStatus = 'Error'
+        })
+        .addCase()
+})
+
+// function newsReducer(state = initialState, action) {
+//     switch (action.type) {
+//         case 'NEWS_FETCHING':
+//             return {
+//                 ...state,
+//                 newsLoadingStatus: 'Loading'
+//             }
     
-        case 'NEWS_FETCHED':
-            return {
-                ...state,
-                news: action.payload,
-                newsLoadingStatus: 'Ok'
-            }
+//         case 'NEWS_FETCHED':
+//             return {
+//                 ...state,
+//                 news: action.payload,
+//                 newsLoadingStatus: 'Ok'
+//             }
 
-        case 'NEWS_FETCHING_ERROR':
-            return {
-                ...state,
-                newsLoadingStatus: 'Error'
-            }
+//         case 'NEWS_FETCHING_ERROR':
+//             return {
+//                 ...state,
+//                 newsLoadingStatus: 'Error'
+//             }
 
-        case 'NEWS_POSTED':
-            return {
-                ...state,
-                news: [...state.news, action.payload],
-            }
+//         case 'NEWS_POSTED':
+//             return {
+//                 ...state,
+//                 news: [...state.news, action.payload],
+//             }
         
-        case 'NEWS_DELETED':
-            return {
-                ...state,
-                news: state.news.filter(s => s.id !== action.payload),
-            }
+//         case 'NEWS_DELETED':
+//             return {
+//                 ...state,
+//                 news: state.news.filter(s => s.id !== action.payload),
+//             }
 
-        default:
-            return state;
-    }
-}
+//         default:
+//             return state;
+//     }
+// }
 
 export default newsReducer;
