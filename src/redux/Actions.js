@@ -17,7 +17,7 @@ export const fetchFilter = (request) => (dispatch) => {
 export const newsFetching = createAction('NEWS_FETCHING')
 export const newsFetched = createAction('NEWS_FETCHED')
 export const newsFetchingError = createAction('NEWS_FETCHING_ERROR')
-export const newPostedNews = createAction('NEWS_POSTED')
+export const newsPosted = createAction('NEWS_POSTED')
 export const newsDeletd = createAction('NEWS_DELETED')
 
 

@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { newsFetched, newsFetching, newsFetchingError } from "../../redux/Actions";
+import { newsDeletd, newsFetched, newsFetching, newsFetchingError, newsPosted } from "../../redux/Actions";
 
 const initialState = {
     news: [],
@@ -18,7 +18,13 @@ const newsReducer = createReducer(initialState, builder => {
         .addCase(newsFetchingError, state => {
             state.newsLoadingStatus = 'Error'
         })
-        .addCase()
+        .addCase(newsPosted, (state, action) => {
+            state.news = state.news.push(action.payload)
+        })
+        .addCase(newsDeletd, (state, action) => {
+            state.news = state.news.filter(s => s.category !== action.payload)
+        })
+        .addDefaultCase(() => {})
 })
 
 // function newsReducer(state = initialState, action) {
