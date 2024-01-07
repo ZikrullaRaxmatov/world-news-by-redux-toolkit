@@ -1,3 +1,5 @@
+import { createReducer } from "@reduxjs/toolkit"
+import { activeFilterChanged, filterFetched, filterFetching, filterFetchingError } from "../../redux/Actions"
 
 const initialState = {
     filters: [],
@@ -6,37 +8,22 @@ const initialState = {
     filteredNews: []
 }
 
-function filterReducer(state = initialState, action) {
-    switch (action.type) {
-
-        case 'FILTER_FETCHING':
-            return {
-                ...state,
-                filterLoadingStatus: 'Loading'
-            }
-        
-        case 'FILTER_FETCHED':
-            return {
-                ...state,
-                filters: action.payload,
-                filterLoadingStatus: 'Ok'
-            }
-        
-        case 'FILTER_FETCHING_ERROR':
-            return {
-                ...state,
-                filterLoadingStatus: 'Error'
-            }
-
-        case 'ACTIVE_FILTER_CHANGED':
-            return {
-                ...state,
-                activeFilter: action.payload,
-            }
-
-        default:
-            return state;
-    }
-}
+const filterReducer = createReducer(initialState, builder => {
+    builder
+        .addCase(filterFetching, state => {
+            state.filterLoadingStatus = 'Loading'
+        })
+        .addCase(filterFetched, (state, action) => {
+            state.filterLoadingStatus = 'Ok'
+            state.filters = action.payload
+        })
+        .addCase(filterFetchingError, state => {
+            state.filterLoadingStatus = 'Error'
+        })
+        .addCase(activeFilterChanged, (state, action) => {
+            state.activeFilter = action.payload
+        })
+        .addDefaultCase(() => {})
+})
 
 export default filterReducer;
